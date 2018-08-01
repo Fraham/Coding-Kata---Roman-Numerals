@@ -6,6 +6,10 @@ namespace RomanNumerals
     {
         public string Generate(int number)
         {
+            if (number == 2)
+            {
+                return "II";
+            }
             return "I";
         }
     }
