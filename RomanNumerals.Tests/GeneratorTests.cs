@@ -14,5 +14,12 @@ namespace RomanNumerals.Tests
             var result = generator.Generate(1);
             Assert.AreEqual(expected: "I", actual: result);
         }
+
+        [TestMethod]
+        public void Generate_Two()
+        {
+            var result = generator.Generate(2);
+            Assert.AreEqual(expected: "II", actual: result);
+        }
     }
 }

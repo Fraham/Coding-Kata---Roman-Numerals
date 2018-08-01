@@ -6,7 +6,7 @@ namespace RomanNumerals
     {
         public string Generate(int number)
         {
-            throw new NotImplementedException("");
+            return "I";
         }
     }
 }
