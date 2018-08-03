@@ -9,6 +9,7 @@ namespace RomanNumerals
     {
         private static Dictionary<int, string> _romanNumeralValues = new Dictionary<int, string>
         {
+            {50, "L"},
             {10, "X"},
             {5, "V"},
             {1, "I"},
@@ -26,7 +27,7 @@ namespace RomanNumerals
             */
             {
                 int amountOfSymbols = (int)(number/romanNumeral.Key);
-                
+
                 romanNumeralBuilder.Append(string.Concat(Enumerable.Repeat(romanNumeral.Value, amountOfSymbols)));
                 number -= romanNumeral.Key * amountOfSymbols;
             }
