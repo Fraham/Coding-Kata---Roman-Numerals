@@ -98,5 +98,12 @@ namespace RomanNumerals.Tests
             var result = generator.Generate(2636);
             Assert.AreEqual(expected: "MMDCXXXVI", actual: result);
         }
+
+        [TestMethod]
+        public void Generate_Four()
+        {
+            var result = generator.Generate(4);
+            Assert.AreEqual(expected: "IV", actual: result);
+        }
     }
 }

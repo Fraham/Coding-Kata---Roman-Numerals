@@ -9,6 +9,7 @@ namespace RomanNumerals
     {
         private static Dictionary<int, string> _romanNumeralValues = new Dictionary<int, string>
         {
+            {4, "IV"},
             {1000, "M"},
             {500, "D"},
             {100, "C"},
@@ -22,12 +23,12 @@ namespace RomanNumerals
         {
             var romanNumeralBuilder = new StringBuilder();
 
-            foreach (var romanNumeral in _romanNumeralValues.OrderByDescending(rn => rn.Key))
             /*
               It is important that the order is descending so that highest values are removed first
 
-              If ordered 1 then 5 it will result in 6 being IIIIII instead of VI
+              If ordered 1,5,10 it will result in 6 being IIIIII instead of VI
             */
+            foreach (var romanNumeral in _romanNumeralValues.OrderByDescending(rn => rn.Key))
             {
                 int amountOfSymbols = (int)(number/romanNumeral.Key);
 
