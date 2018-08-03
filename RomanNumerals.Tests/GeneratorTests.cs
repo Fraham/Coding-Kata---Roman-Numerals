@@ -32,7 +32,7 @@ namespace RomanNumerals.Tests
         [TestMethod]
         public void Generate_Six()
         {
-            var result = generator.Generate(5);
+            var result = generator.Generate(6);
             Assert.AreEqual(expected: "VI", actual: result);
         }
     }
