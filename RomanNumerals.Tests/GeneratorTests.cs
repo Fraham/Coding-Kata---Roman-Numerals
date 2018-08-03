@@ -84,5 +84,12 @@ namespace RomanNumerals.Tests
             var result = generator.Generate(128);
             Assert.AreEqual(expected: "CXXVIII", actual: result);
         }
+
+        [TestMethod]
+        public void Generate_SixHundredThirtySix()
+        {
+            var result = generator.Generate(636);
+            Assert.AreEqual(expected: "DCXXXVI", actual: result);
+        }
     }
 }
