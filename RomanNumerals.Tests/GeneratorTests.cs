@@ -126,5 +126,12 @@ namespace RomanNumerals.Tests
             var result = generator.Generate(9);
             Assert.AreEqual(expected: "IX", actual: result);
         }
+
+        [TestMethod]
+        public void Generate_NinetyNine()
+        {
+            var result = generator.Generate(99);
+            Assert.AreEqual(expected: "XCIX", actual: result);
+        }
     }
 }
