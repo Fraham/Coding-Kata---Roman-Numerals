@@ -1,33 +1,37 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace RomanNumerals
 {
     public class RomanNumeralGenerator : IRomanNumeralGenerator
     {
+        private static Dictionary<int, string> _romanNumeralValues = new Dictionary<int, string>
+        {
+            {10, "X"},
+            {5, "V"},
+            {1, "I"},
+        };
+
         public string Generate(int number)
         {
-            var roman = new StringBuilder();
+            var romanNumeralBuilder = new StringBuilder();
 
-            while (number >= 10)
+            foreach (var romanNumeral in _romanNumeralValues.OrderByDescending(rn => rn.Key))
+            /*
+              It is important that the order is descending so that highest values are removed first
+
+              If ordered 1 then 5 it will result in 6 being IIIIII instead of VI
+            */
             {
-                roman.Append("X");
-                number -= 10;
+                int amountOfSymbols = (int)(number/romanNumeral.Key);
+                
+                romanNumeralBuilder.Append(string.Concat(Enumerable.Repeat(romanNumeral.Value, amountOfSymbols)));
+                number -= romanNumeral.Key * amountOfSymbols;
             }
 
-            if (number >= 5)
-            {
-                roman.Append("V");
-                number -= 5;
-            }
-
-            while (number >= 1)
-            {
-                roman.Append("I");
-                number -= 1;
-            }
-
-            return roman.ToString();
+            return romanNumeralBuilder.ToString();
         }
     }
 }
