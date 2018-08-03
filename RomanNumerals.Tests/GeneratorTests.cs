@@ -49,5 +49,26 @@ namespace RomanNumerals.Tests
             var result = generator.Generate(10);
             Assert.AreEqual(expected: "X", actual: result);
         }
+
+        [TestMethod]
+        public void Generate_Twenty()
+        {
+            var result = generator.Generate(20);
+            Assert.AreEqual(expected: "XX", actual: result);
+        }
+
+        [TestMethod]
+        public void Generate_TwentyOne()
+        {
+            var result = generator.Generate(21);
+            Assert.AreEqual(expected: "XXI", actual: result);
+        }
+
+        [TestMethod]
+        public void Generate_TwentySeven()
+        {
+            var result = generator.Generate(27);
+            Assert.AreEqual(expected: "XXVII", actual: result);
+        }
     }
 }
