@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RomanNumerals;
+using System.Collections.Generic;
 
 namespace RomanNumerals.Tests
 {
@@ -139,6 +140,32 @@ namespace RomanNumerals.Tests
         {
             var result = generator.Generate(999);
             Assert.AreEqual(expected: "CMXCIX", actual: result);
+        }
+
+        [TestMethod]
+        public void Generate_TestExtremes_Valid()
+        {
+            var romanNumerals = new Dictionary<int, string>
+            {
+                {1, "I"},
+                {3999, "MMMCMXCIX"},
+            };
+
+            TestPairs(romanNumerals);            
+        }
+
+        private void TestPairs(Dictionary<int, string> romanNumerals)
+        {
+            foreach (var pairs in romanNumerals)
+            {
+                TestPair(pairs.Key, pairs.Value);
+            }
+        }
+
+        private void TestPair(int number, string expectedNumerals)
+        {
+            var result = generator.Generate(number);
+            Assert.AreEqual(expected: expectedNumerals, actual: result);
         }
     }
 }
