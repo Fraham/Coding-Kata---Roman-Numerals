@@ -15,14 +15,10 @@ namespace RomanNumerals
                 number -= 5;
             }
 
-            if (number == 2)
-            {
-                roman.Append("II");
-            }
-
-            if (number == 1)
+            while (number >= 1)
             {
                 roman.Append("I");
+                number -= 1;
             }
 
             return roman.ToString();
