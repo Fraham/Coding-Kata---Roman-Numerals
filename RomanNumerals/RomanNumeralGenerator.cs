@@ -26,6 +26,11 @@ namespace RomanNumerals
 
         public string Generate(int number)
         {
+            if (number < 1 || number > 3999)
+            {
+                throw new ArgumentException($"Invalid input of {number}, input must be in the range of 1 - 3999 inclusive.");
+            }
+
             var romanNumeralBuilder = new StringBuilder();
 
             /*

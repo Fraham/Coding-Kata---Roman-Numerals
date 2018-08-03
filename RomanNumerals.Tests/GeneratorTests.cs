@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RomanNumerals;
+using System;
 using System.Collections.Generic;
 
 namespace RomanNumerals.Tests
@@ -152,6 +153,31 @@ namespace RomanNumerals.Tests
             };
 
             TestPairs(romanNumerals);            
+        }
+
+        [TestMethod]
+        public void Generate_TestExtremes_Invalid()
+        {
+            var numbers = new int[] {0, 4000, int.MaxValue, int.MinValue};
+
+            foreach (var number in numbers)
+            {
+                try
+                {
+                    generator.Generate(number);
+                }
+                catch (ArgumentException ex)
+                {
+                    Assert.AreEqual(expected: $"Invalid input of {number}, input must be in the range of 1 - 3999 inclusive.", actual: ex.Message);
+                    continue;
+                }
+                catch
+                {
+                    Assert.Fail("Invalid exception thrown.");
+                }
+                
+                Assert.Fail("No exception thrown.");
+            }      
         }
 
         private void TestPairs(Dictionary<int, string> romanNumerals)
