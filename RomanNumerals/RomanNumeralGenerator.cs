@@ -9,6 +9,12 @@ namespace RomanNumerals
         {
             var roman = new StringBuilder();
 
+            while (number >= 10)
+            {
+                roman.Append("X");
+                number -= 10;
+            }
+
             if (number >= 5)
             {
                 roman.Append("V");
