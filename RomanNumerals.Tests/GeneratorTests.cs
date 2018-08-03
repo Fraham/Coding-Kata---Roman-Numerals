@@ -180,6 +180,21 @@ namespace RomanNumerals.Tests
             }      
         }
 
+        [TestMethod]
+        public void Generate_RandomValues()
+        {
+            var romanNumerals = new Dictionary<int, string>
+            {
+                {1675, "MDCLXXV"},
+                {3045, "MMMXLV"},
+                {1897, "MDCCCXCVII"},
+                {185, "CLXXXV"},
+                {2246, "MMCCXLVI"},
+            };
+
+            TestPairs(romanNumerals);            
+        }
+
         private void TestPairs(Dictionary<int, string> romanNumerals)
         {
             foreach (var pairs in romanNumerals)
