@@ -91,5 +91,12 @@ namespace RomanNumerals.Tests
             var result = generator.Generate(636);
             Assert.AreEqual(expected: "DCXXXVI", actual: result);
         }
+
+        [TestMethod]
+        public void Generate_TwoThousandSixHundredThirtySix()
+        {
+            var result = generator.Generate(2636);
+            Assert.AreEqual(expected: "MMDCXXXVI", actual: result);
+        }
     }
 }
