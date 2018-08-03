@@ -9,6 +9,7 @@ namespace RomanNumerals
     {
         private static Dictionary<int, string> _romanNumeralValues = new Dictionary<int, string>
         {
+            {100, "C"},
             {50, "L"},
             {10, "X"},
             {5, "V"},

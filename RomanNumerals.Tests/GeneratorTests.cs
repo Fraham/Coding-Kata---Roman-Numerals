@@ -77,5 +77,12 @@ namespace RomanNumerals.Tests
             var result = generator.Generate(51);
             Assert.AreEqual(expected: "LI", actual: result);
         }
+
+        [TestMethod]
+        public void Generate_OneHundredTwentyEight()
+        {
+            var result = generator.Generate(128);
+            Assert.AreEqual(expected: "CXXVIII", actual: result);
+        }
     }
 }
