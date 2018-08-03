@@ -133,5 +133,12 @@ namespace RomanNumerals.Tests
             var result = generator.Generate(99);
             Assert.AreEqual(expected: "XCIX", actual: result);
         }
+
+        [TestMethod]
+        public void Generate_NineHundreadNinetyNine()
+        {
+            var result = generator.Generate(999);
+            Assert.AreEqual(expected: "CMXCIX", actual: result);
+        }
     }
 }
